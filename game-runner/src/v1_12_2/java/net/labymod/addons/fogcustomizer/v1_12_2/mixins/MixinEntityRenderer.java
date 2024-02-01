@@ -68,7 +68,7 @@ public class MixinEntityRenderer {
           target = "Lnet/minecraft/world/World;getFogColor(F)Lnet/minecraft/util/math/Vec3d;"
       )
   )
-  private Vec3d getFogColor(World world, float partialTicks) {
+  private Vec3d fogcustomizer$getFogColor(World world, float partialTicks) {
     FogCustomizerConfiguration config = this.fogcustomizer$config();
 
     if (config.enabled().get()) {
