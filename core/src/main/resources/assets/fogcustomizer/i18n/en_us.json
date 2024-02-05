@@ -10,28 +10,28 @@
         "name": "Color",
         "description": "The color of the fog.",
         "surface": {
-          "name": "Surface",
-          "description": "Change the color of the fog at the surface world."
+          "name": "Overworld",
+          "description": "Change the color of the fog in the Overworld."
         },
         "surfaceColor": {
-          "name": "Surface Color",
-          "description": "The color of the fog at the surface world."
+          "name": "Overworld Color",
+          "description": "The color of the fog in the Overworld."
         },
         "hell": {
           "name": "Nether",
-          "description": "Change the color of the fog at the Nether world."
+          "description": "Change the color of the fog in the Nether."
         },
         "hellColor": {
           "name": "Nether Color",
-          "description": "The color of the fog at the Nether world."
+          "description": "The color of the fog in the Nether."
         },
         "end": {
-          "name": "End-World",
-          "description": "Change the color of the fog at the End-world."
+          "name": "End",
+          "description": "Change the color of the fog in the End."
         },
         "endColor": {
-          "name": "End-World Color",
-          "description": "The color of the fog at the End-world."
+          "name": "End Color",
+          "description": "The color of the fog in the End."
         },
         "water": {
           "name": "Water",
@@ -54,16 +54,16 @@
         "name": "Density",
         "description": "The density of the fog.",
         "surface": {
-          "name": "Surface",
-          "description": "Enable or disable the custom fog density in the overworld."
+          "name": "Overworld",
+          "description": "Enable or disable the custom fog density in the Overworld."
         },
         "surfaceDensity": {
-          "name": "Surface density",
-          "description": "The density percentage of the fog at the surface world."
+          "name": "Overworld density",
+          "description": "The density percentage of the fog in the Overworld."
         },
         "surfaceDistance": {
-          "name": "Surface distance",
-          "description": "The distance in blocks where the fog should be fully visible in the overworld."
+          "name": "Overworld distance",
+          "description": "The distance in blocks where the fog should be fully visible in the Overworld."
         },
         "hell": {
           "name": "Nether",
@@ -71,23 +71,23 @@
         },
         "hellDensity": {
           "name": "Nether density",
-          "description": "The density percentage of the fog at the Nether world."
+          "description": "The density percentage of the fog in the Nether."
         },
         "hellDistance": {
           "name": "Nether distance",
           "description": "The distance in blocks where the fog should be fully visible in the Nether."
         },
         "end": {
-          "name": "End-World",
-          "description": "Enable or disable the custom fog density in the end."
+          "name": "End",
+          "description": "Enable or disable the custom fog density in the End."
         },
         "endDensity": {
-          "name": "End-World density",
-          "description": "The density percentage of the fog at the End-world."
+          "name": "End density",
+          "description": "The density percentage of the fog in the End."
         },
         "endDistance": {
-          "name": "End-World distance",
-          "description": "The distance in blocks where the fog should be fully visible in the End-world."
+          "name": "End distance",
+          "description": "The distance in blocks where the fog should be fully visible in the End."
         }
       }
     }
