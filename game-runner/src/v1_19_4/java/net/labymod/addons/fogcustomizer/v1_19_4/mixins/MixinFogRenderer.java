@@ -63,7 +63,9 @@ public class MixinFogRenderer {
       at = @At(
           value = "INVOKE",
           target = "Lnet/minecraft/util/CubicSampler;gaussianSampleVec3(Lnet/minecraft/world/phys/Vec3;Lnet/minecraft/util/CubicSampler$Vec3Fetcher;)Lnet/minecraft/world/phys/Vec3;"
-      )
+      ),
+      require = 0,
+      expect = 0
   )
   private static Vec3 fogcustomizer$setupColor(Vec3 vec3, Vec3Fetcher fetcher) {
     FogCustomizerConfiguration config = fogcustomizer$config();
@@ -97,7 +99,9 @@ public class MixinFogRenderer {
           value = "INVOKE",
           target = "Lnet/minecraft/client/multiplayer/ClientLevel$ClientLevelData;getClearColorScale()F",
           shift = At.Shift.AFTER
-      )
+      ),
+      require = 0,
+      expect = 0
   )
   private static void fogcustomizer$setupColorWaterAndLava(
       Camera camera,
@@ -144,7 +148,9 @@ public class MixinFogRenderer {
           value = "INVOKE",
           target = "Lcom/mojang/blaze3d/systems/RenderSystem;setShaderFogEnd(F)V",
           shift = At.Shift.AFTER
-      )
+      ),
+      require = 0,
+      expect = 0
   )
   private static void fogcustomizer$setupFogDensity(
       Camera camera,

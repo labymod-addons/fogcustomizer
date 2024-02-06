@@ -96,7 +96,9 @@ public class MixinFogRenderer {
           value = "INVOKE",
           target = "Lnet/minecraft/client/multiplayer/ClientLevel$ClientLevelData;getClearColorScale()D",
           shift = At.Shift.AFTER
-      )
+      ),
+      require = 0,
+      expect = 0
   )
   private static void fogcustomizer$setupColorWaterAndLava(
       Camera camera,
@@ -143,7 +145,9 @@ public class MixinFogRenderer {
           value = "INVOKE",
           target = "Lcom/mojang/blaze3d/systems/RenderSystem;fogEnd(F)V",
           shift = At.Shift.AFTER
-      )
+      ),
+      require = 0,
+      expect = 0
   )
   private static void fogcustomizer$setupFogDensity(
       Camera camera,

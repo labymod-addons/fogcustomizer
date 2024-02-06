@@ -1,3 +1,5 @@
+import net.labymod.gradle.core.minecraft.provider.VersionProvider
+
 plugins {
     id("java-library")
     id("net.labymod.gradle")
@@ -34,6 +36,8 @@ labyMod {
                 "1.20.4"
         ) { version, provider ->
             configureRun(provider, version)
+
+            provider.applyOptiFine(version, false)
         }
 
         subprojects.forEach {
@@ -45,6 +49,46 @@ labyMod {
 
     addonDev {
         productionRelease()
+    }
+}
+
+fun VersionProvider.applyOptiFine(version: String, useOptiFine: Boolean) {
+    if (!useOptiFine) {
+        return
+    }
+
+    optiFineVersion = when (version) {
+        "1.16.5" -> {
+            "HD U G8"
+        }
+
+        "1.17.1" -> {
+            "HD U H1"
+        }
+
+        "1.18.2" -> {
+            "HD U H7"
+        }
+
+        "1.19.2" -> {
+            "HD U I1"
+        }
+
+        "1.19.3" -> {
+            "HD U I3"
+        }
+
+        "1.19.4" -> {
+            "HD U I4"
+        }
+
+        "1.20.1" -> {
+            "HD U I5"
+        }
+
+        else -> {
+            null
+        }
     }
 }
 

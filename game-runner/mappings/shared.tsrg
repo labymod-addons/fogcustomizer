@@ -1,0 +1,18 @@
+net/minecraft/client/gui/GuiVideoSettings adadada
+	actionPerformed (Lnet/minecraft/client/gui/GuiButton;I)V actionPerformed
+net/minecraft/core/NonNullList unknown
+	add (Ljava/lang/Object;)Z add
+net/minecraft/client/Screenshot ungfskj
+	lambda$saveScreenshotRaw$2 (Lcom/mojang/blaze3d/platform/NativeImage;Ljava/io/File;Ljava/util/function/Consumer;)V lambda$saveScreenshotRaw$2
+com/mojang/blaze3d/vertex/BufferUploader zteuij
+	draw (Ljava/nio/ByteBuffer;Lcom/mojang/blaze3d/vertex/VertexFormat$Mode;Lcom/mojang/blaze3d/vertex/VertexFormat;ILcom/mojang/blaze3d/vertex/VertexFormat$IndexType;IZLnet/optifine/render/MultiTextureData;)V draw
+net/minecraft/client/OptionInstance fdshfj
+	getIntRangeBase ()Lnet/minecraft/client/OptionInstance$IntRangeBase; getIntRangeBase
+net/minecraft/client/particle/ParticleEngine goisdj
+	render (Lcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/MultiBufferSource$BufferSource;Lnet/minecraft/client/renderer/LightTexture;Lnet/minecraft/client/Camera;FLnet/minecraft/client/renderer/culling/Frustum;)V render
+net/minecraft/client/gui/screens/VideoSettingsScreen lafkaf
+	updateGuiScale ()V updateGuiScale
+net/minecraft/client/renderer/ScreenEffectRenderer lafkamiykf
+	getOverlayBlock (Lnet/minecraft/world/entity/player/Player;)Lorg/apache/commons/lang3/tuple/Pair; getOverlayBlock
+net/minecraft/client/renderer/texture/TextureAtlasSprite lafkamiykfa
+	init (Lnet/minecraft/resources/ResourceLocation;Lnet/minecraft/client/renderer/texture/SpriteContents;IIII)V init

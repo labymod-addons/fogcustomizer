@@ -67,7 +67,9 @@ public class MixinEntityRenderer {
       at = @At(
           value = "INVOKE",
           target = "Lnet/minecraft/world/World;getFogColor(F)Lnet/minecraft/util/math/Vec3d;"
-      )
+      ),
+      require = 0,
+      expect = 0
   )
   private Vec3d fogcustomizer$getFogColor(World world, float partialTicks) {
     FogCustomizerConfiguration config = this.fogcustomizer$config();
@@ -126,7 +128,9 @@ public class MixinEntityRenderer {
           value = "FIELD",
           target = "Lnet/minecraft/client/renderer/EntityRenderer;fogColor1:F",
           shift = Shift.BEFORE
-      )
+      ),
+      require = 0,
+      expect = 0
   )
   private void fogcustomizer$updateFogColor(float partialTicks, CallbackInfo ci) {
     FogCustomizerConfiguration config = this.fogcustomizer$config();
@@ -178,7 +182,9 @@ public class MixinEntityRenderer {
           value = "INVOKE",
           target = "Lnet/minecraft/world/WorldProvider;doesXZShowFog(II)Z",
           shift = Shift.BEFORE
-      )
+      ),
+      require = 0,
+      expect = 0
   )
   private void fogcustomizer$setupFogSurface(int startCoords, float partialTicks, CallbackInfo ci) {
     FogCustomizerConfiguration config = this.fogcustomizer$config();
@@ -210,7 +216,9 @@ public class MixinEntityRenderer {
               value = "INVOKE",
               target = "Lnet/minecraft/client/renderer/GlStateManager;enableColorMaterial()V"
           )
-      )
+      ),
+      require = 0,
+      expect = 0
   )
   private void fogcustomizer$setupFogHellAndEnd(int startCoords, float partialTicks,
       CallbackInfo ci) {
