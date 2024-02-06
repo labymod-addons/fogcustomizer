@@ -26,15 +26,15 @@ import net.minecraft.client.Camera;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.renderer.FogRenderer;
-import net.minecraft.util.CubicSampler;
-import net.minecraft.util.CubicSampler.Vec3Fetcher;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.dimension.DimensionType;
 import net.minecraft.world.level.material.FogType;
-import net.minecraft.world.phys.Vec3;
-import org.jetbrains.annotations.NotNull;
+import org.spongepowered.asm.mixin.Dynamic;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
@@ -56,39 +56,43 @@ public class MixinFogRenderer {
   @Shadow
   private static float fogBlue;
 
+  @Dynamic
   @Redirect(
-      method = "setupColor",
+      method = {
+          "lambda$setupColor$0", // Vanilla
+          "lambda$updateFogColor$0" // OptiFine
+      },
       at = @At(
           value = "INVOKE",
-          target = "Lnet/minecraft/util/CubicSampler;gaussianSampleVec3(Lnet/minecraft/world/phys/Vec3;Lnet/minecraft/util/CubicSampler$Vec3Fetcher;)Lnet/minecraft/world/phys/Vec3;"
+          target = "Lnet/minecraft/world/level/biome/Biome;getFogColor()I"
       ),
       require = 0,
       expect = 0
   )
-  private static Vec3 fogcustomizer$setupColor(Vec3 vec3, Vec3Fetcher fetcher) {
+  private static int getFogColor(Biome biome) {
     FogCustomizerConfiguration config = fogcustomizer$config();
     ClientLevel level = Minecraft.getInstance().level;
 
     if (config.enabled().get() && level != null) {
       ColorConfiguration colors = config.color();
-      DimensionType dimensionType = level.dimensionType();
+      ResourceKey<Level> dimensionType = level.dimension();
 
       // Surface
-      if (colors.surface().get() && dimensionType.hasSkyLight()) {
-        fetcher = asFetcher(colors.surfaceColor().get());
+      if (colors.surface().get() && dimensionType == Level.OVERWORLD) {
+        return colors.surfaceColor().get().get();
       }
 
       // Nether
-      if (colors.hell().get() && dimensionType.ultraWarm()) {
-        fetcher = asFetcher(colors.hellColor().get());
+      if (colors.hell().get() && dimensionType == Level.NETHER) {
+        return colors.hellColor().get().get();
       }
 
       // End
-      if (colors.end().get() && dimensionType.createDragonFight()) {
-        fetcher = asFetcher(colors.endColor().get());
+      if (colors.end().get() && dimensionType == Level.END) {
+        return colors.endColor().get().get();
       }
     }
-    return CubicSampler.gaussianSampleVec3(vec3, fetcher);
+    return biome.getFogColor();
   }
 
   @Inject(
@@ -140,64 +144,56 @@ public class MixinFogRenderer {
     }
   }
 
+  @Dynamic
   @Inject(
-      method = "setupFog",
+      method = {
+          "setupFog(Lnet/minecraft/client/Camera;Lnet/minecraft/client/renderer/FogRenderer$FogMode;FZ)V",
+          // Vanilla
+          "setupFog(Lnet/minecraft/client/Camera;Lnet/minecraft/client/renderer/FogRenderer$FogMode;FZF)V"
+          // OptiFine
+      },
       at = @At(
           value = "INVOKE",
           target = "Lcom/mojang/blaze3d/systems/RenderSystem;setShaderFogEnd(F)V",
-          shift = At.Shift.AFTER,
-          ordinal = 1
+          shift = At.Shift.AFTER
       ),
       require = 0,
       expect = 0
   )
-  private static void fogcustomizer$setupFogDensity(
-      Camera camera,
-      FogRenderer.FogMode mode,
-      float renderDistance,
-      boolean isFoggy,
-      CallbackInfo ci
-  ) {
+  private static void fogcustomizer$setupFogDensityVanilla(CallbackInfo ci) {
     FogCustomizerConfiguration config = fogcustomizer$config();
     ClientLevel level = Minecraft.getInstance().level;
-
-    if (config.enabled().get() && level != null) {
-      DensityConfiguration density = config.density();
-      DimensionType dimensionType = level.dimensionType();
-      Entity entity = camera.getEntity();
-
-      FogType type = camera.getFluidInCamera();
-      if (type != FogType.NONE
-          || (entity instanceof LivingEntity
-          && ((LivingEntity) entity).hasEffect(MobEffects.BLINDNESS))
-      ) {
-        return;
-      }
-
-      // Surface
-      if (density.surface().get() && dimensionType.hasSkyLight()) {
-        fogcustomizer$setFog(density.surfaceDensity().get(), density.surfaceDistance().get());
-      }
-
-      // Nether
-      if (density.hell().get() && dimensionType.ultraWarm()) {
-        fogcustomizer$setFog(density.hellDensity().get(), density.hellDistance().get());
-      }
-
-      // End
-      if (density.end().get() && dimensionType.createDragonFight()) {
-        fogcustomizer$setFog(density.endDensity().get(), density.endDistance().get());
-      }
+    if (!config.enabled().get() || level == null) {
+      return;
     }
-  }
 
-  @NotNull
-  private static Vec3Fetcher asFetcher(Color color) {
-    return (x, y, z) -> new Vec3(
-        color.getRed() / 255.0F,
-        color.getGreen() / 255.0F,
-        color.getBlue() / 255.0F
-    );
+    Camera camera = Minecraft.getInstance().gameRenderer.getMainCamera();
+    Entity entity = camera.getEntity();
+    FogType type = camera.getFluidInCamera();
+    if (type != FogType.NONE
+        || (entity instanceof LivingEntity
+        && ((LivingEntity) entity).hasEffect(MobEffects.BLINDNESS))
+    ) {
+      return;
+    }
+
+    DensityConfiguration density = config.density();
+    DimensionType dimensionType = level.dimensionType();
+
+    // Surface
+    if (density.surface().get() && dimensionType.hasSkyLight()) {
+      fogcustomizer$setFog(density.surfaceDensity().get(), density.surfaceDistance().get());
+    }
+
+    // Nether
+    if (density.hell().get() && dimensionType.ultraWarm()) {
+      fogcustomizer$setFog(density.hellDensity().get(), density.hellDistance().get());
+    }
+
+    // End
+    if (density.end().get() && dimensionType.createDragonFight()) {
+      fogcustomizer$setFog(density.endDensity().get(), density.endDistance().get());
+    }
   }
 
   @Unique
