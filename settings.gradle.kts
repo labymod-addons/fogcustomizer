@@ -1,7 +1,7 @@
 rootProject.name = "fogcustomizer"
 
 pluginManagement {
-    val labyGradlePluginVersion = "0.3.44"
+    val labyGradlePluginVersion = "0.3.50"
     plugins {
         id("net.labymod.gradle") version (labyGradlePluginVersion)
     }

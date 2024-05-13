@@ -111,7 +111,7 @@ subprojects {
     }
 }
 
-fun configureRun(provider: net.labymod.gradle.core.minecraft.provider.VersionProvider, gameVersion: String) {
+fun configureRun(provider: VersionProvider, gameVersion: String) {
     provider.runConfiguration {
         mainClass = "net.minecraft.launchwrapper.Launch"
         jvmArgs("-Dnet.labymod.running-version=${gameVersion}")
@@ -126,7 +126,7 @@ fun configureRun(provider: net.labymod.gradle.core.minecraft.provider.VersionPro
 
     provider.javaVersion = when (gameVersion) {
         else -> {
-            JavaVersion.VERSION_17
+            JavaVersion.VERSION_21
         }
     }
 
