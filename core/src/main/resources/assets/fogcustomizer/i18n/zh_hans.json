@@ -1,0 +1,95 @@
+{
+    "fogcustomizer": {
+        "settings": {
+            "name": "",
+            "enabled": {
+                "name": "",
+                "description": ""
+            },
+            "color": {
+                "name": "",
+                "description": "",
+                "surface": {
+                    "name": "",
+                    "description": ""
+                },
+                "surfaceColor": {
+                    "name": "",
+                    "description": ""
+                },
+                "hell": {
+                    "name": "",
+                    "description": ""
+                },
+                "hellColor": {
+                    "name": "",
+                    "description": ""
+                },
+                "end": {
+                    "name": "",
+                    "description": ""
+                },
+                "endColor": {
+                    "name": "",
+                    "description": ""
+                },
+                "water": {
+                    "name": "",
+                    "description": ""
+                },
+                "waterColor": {
+                    "name": "",
+                    "description": ""
+                },
+                "lava": {
+                    "name": "",
+                    "description": ""
+                },
+                "lavaColor": {
+                    "name": "",
+                    "description": ""
+                }
+            },
+            "density": {
+                "name": "",
+                "description": "",
+                "surface": {
+                    "name": "",
+                    "description": ""
+                },
+                "surfaceDensity": {
+                    "name": "",
+                    "description": ""
+                },
+                "surfaceDistance": {
+                    "name": "",
+                    "description": ""
+                },
+                "hell": {
+                    "name": "",
+                    "description": ""
+                },
+                "hellDensity": {
+                    "name": "",
+                    "description": ""
+                },
+                "hellDistance": {
+                    "name": "",
+                    "description": ""
+                },
+                "end": {
+                    "name": "",
+                    "description": ""
+                },
+                "endDensity": {
+                    "name": "",
+                    "description": ""
+                },
+                "endDistance": {
+                    "name": "",
+                    "description": ""
+                }
+            }
+        }
+    }
+}
