@@ -30,10 +30,13 @@
                 },
                 "hell": {
                     "name": ""
-                }
+                },
+                "name": "Cor",
+                "description": "A cor da névoa."
             },
             "enabled": {
-                "description": "Ativar ou desativar a névoa customizada."
+                "description": "Ativar ou desativar a névoa customizada.",
+                "name": "Ativado"
             },
             "density": {
                 "hellDensity": {
