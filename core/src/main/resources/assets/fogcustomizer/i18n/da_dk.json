@@ -1,1 +1,13 @@
-{}
+{
+    "fogcustomizer": {
+        "settings": {
+            "name": "Tåge Tilpasning",
+            "enabled": {
+                "name": "Aktiveret"
+            },
+            "color": {
+                "name": "Farve"
+            }
+        }
+    }
+}
