@@ -18,7 +18,8 @@
                     "description": "Dünyadaki sisin rengini değiştirin."
                 },
                 "hell": {
-                    "name": "Nether"
+                    "name": "Nether",
+                    "description": "Nether’daki sisin rengini değiştir."
                 },
                 "end": {
                     "name": "Son",
@@ -38,6 +39,10 @@
                 },
                 "lava": {
                     "name": "Lav"
+                },
+                "hellColor": {
+                    "name": "Nether Rengi",
+                    "description": "Nether’daki sisin rengi."
                 }
             }
         }
