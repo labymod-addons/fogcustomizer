@@ -3,7 +3,8 @@
         "settings": {
             "name": "Tåge Tilpasning",
             "enabled": {
-                "name": "Aktiveret"
+                "name": "Aktiveret",
+                "description": "Aktivér eller deaktiver tågetilpasseren."
             },
             "color": {
                 "name": "Farve"
