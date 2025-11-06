@@ -1,1 +1,19 @@
-{}
+{
+    "fogcustomizer": {
+        "settings": {
+            "name": "Mistinstellingen",
+            "enabled": {
+                "name": "Ingeschakeld",
+                "description": "De mistaanpasser in- of uitschakelen."
+            },
+            "color": {
+                "name": "Kleur",
+                "description": "De kleur van de mist.",
+                "surface": {
+                    "name": "Bovenwereld",
+                    "description": "Wijzig de kleur van de mist in de Bovenwereld."
+                }
+            }
+        }
+    }
+}
