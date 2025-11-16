@@ -1,1 +1,15 @@
-{}
+{
+    "fogcustomizer": {
+        "settings": {
+            "name": "Sis Özelleştirmesi",
+            "enabled": {
+                "name": "Aktif",
+                "description": "Sis özelleştiricisini aktif veya inaktif yap."
+            },
+            "color": {
+                "name": "Renk",
+                "description": "Sisin rengi."
+            }
+        }
+    }
+}
