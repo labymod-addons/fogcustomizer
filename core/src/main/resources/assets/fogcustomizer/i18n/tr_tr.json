@@ -8,7 +8,13 @@
             },
             "color": {
                 "name": "Renk",
-                "description": "Sisin rengi."
+                "description": "Sisin rengi.",
+                "surfaceColor": {
+                    "name": "Dünya Rengi"
+                },
+                "surface": {
+                    "name": "Dünya"
+                }
             }
         }
     }
