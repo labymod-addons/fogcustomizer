@@ -15,6 +15,14 @@
             },
             "enabled": {
                 "description": "Ativar ou desativar a névoa customizada."
+            },
+            "density": {
+                "hellDensity": {
+                    "name": "Densidade do Nether"
+                },
+                "hellDistance": {
+                    "name": "Distância do Nether"
+                }
             }
         }
     }
