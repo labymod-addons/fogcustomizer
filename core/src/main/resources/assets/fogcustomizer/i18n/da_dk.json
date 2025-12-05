@@ -11,7 +11,19 @@
                 "description": "Farven på tågen.",
                 "water": {
                     "name": "Vand"
+                },
+                "waterColor": {
+                    "name": "Vandfarve"
+                },
+                "lava": {
+                    "name": "Lava"
+                },
+                "lavaColor": {
+                    "name": "Lavafarve"
                 }
+            },
+            "density": {
+                "name": "Densitet"
             }
         }
     }
