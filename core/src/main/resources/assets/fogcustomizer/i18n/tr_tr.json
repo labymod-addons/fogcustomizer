@@ -10,10 +10,12 @@
                 "name": "Renk",
                 "description": "Sisin rengi.",
                 "surfaceColor": {
-                    "name": "Dünya Rengi"
+                    "name": "Dünya Rengi",
+                    "description": "Dünyadaki sisin rengi."
                 },
                 "surface": {
-                    "name": "Dünya"
+                    "name": "Dünya",
+                    "description": "Dünyadaki sisin rengini değiştirin."
                 },
                 "hell": {
                     "name": "Nether"
