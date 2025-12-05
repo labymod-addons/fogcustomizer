@@ -31,6 +31,13 @@
                 "water": {
                     "name": "Su",
                     "description": "Suyun içindeki sisin rengini değiştir."
+                },
+                "waterColor": {
+                    "name": "Su Rengi",
+                    "description": "Suyun içindeki sisin rengi."
+                },
+                "lava": {
+                    "name": "Lav"
                 }
             }
         }
