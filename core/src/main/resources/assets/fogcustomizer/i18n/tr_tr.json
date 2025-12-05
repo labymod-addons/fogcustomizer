@@ -21,7 +21,12 @@
                     "name": "Nether"
                 },
                 "end": {
-                    "name": "Son"
+                    "name": "Son",
+                    "description": "Sondaki sisin rengini değiştir."
+                },
+                "endColor": {
+                    "name": "Son Rengi",
+                    "description": "Sondaki sisin rengi."
                 }
             }
         }
