@@ -38,11 +38,23 @@
                     "description": "Suyun içindeki sisin rengi."
                 },
                 "lava": {
-                    "name": "Lav"
+                    "name": "Lav",
+                    "description": "Lavın içindeki sisin rengini değiştir."
                 },
                 "hellColor": {
                     "name": "Nether Rengi",
                     "description": "Nether’daki sisin rengi."
+                },
+                "lavaColor": {
+                    "name": "Lav Rengi",
+                    "description": "Lavın içindeki sisin rengi."
+                }
+            },
+            "density": {
+                "name": "Yoğunluk",
+                "description": "Sisin yoğunluğu.",
+                "surface": {
+                    "name": "Dünya"
                 }
             }
         }
