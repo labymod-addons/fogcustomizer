@@ -54,7 +54,40 @@
                 "name": "Yoğunluk",
                 "description": "Sisin yoğunluğu.",
                 "surface": {
-                    "name": "Dünya"
+                    "name": "Dünya",
+                    "description": "Dünyada özel sis yoğunluğunu etkinleştir veya devre dışı bırak."
+                },
+                "surfaceDensity": {
+                    "name": "Dünya yoğunluğu",
+                    "description": "Dünyadaki sisin yoğunluk yüzdesi."
+                },
+                "surfaceDistance": {
+                    "name": "Dünya mesafesi",
+                    "description": "Sis'in Dünyadaki tam olarak görülebileceği bloklar halindeki mesafe."
+                },
+                "hell": {
+                    "name": "Nether",
+                    "description": "Nether'deki özel sis yoğunluğunu etkinleştir veya devre dışı bırak."
+                },
+                "hellDensity": {
+                    "name": "Nether yoğunluğu",
+                    "description": "Nether'daki sisin yoğunluk yüzdesi."
+                },
+                "hellDistance": {
+                    "name": "Nether mesafesi",
+                    "description": "Nether'da sisin tam olarak görülebileceği bloklar halinde mesafe."
+                },
+                "end": {
+                    "name": "Son",
+                    "description": "Son'daki özel sis yoğunluğunu etkinleştir veya devre dışı bırak."
+                },
+                "endDensity": {
+                    "name": "Son yoğunluğu",
+                    "description": "Sondaki sisin yoğunluk yüzdesi."
+                },
+                "endDistance": {
+                    "name": "Son Mesafesi",
+                    "description": "Sonda sisin tam olarak görülebileceği bloklar halinde mesafe."
                 }
             }
         }
