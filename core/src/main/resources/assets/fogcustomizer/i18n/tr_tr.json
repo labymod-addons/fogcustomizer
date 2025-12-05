@@ -27,6 +27,10 @@
                 "endColor": {
                     "name": "Son Rengi",
                     "description": "Sondaki sisin rengi."
+                },
+                "water": {
+                    "name": "Su",
+                    "description": "Suyun içindeki sisin rengini değiştir."
                 }
             }
         }
