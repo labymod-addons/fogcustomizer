@@ -21,6 +21,15 @@
                 },
                 "lava": {
                     "name": "Lava"
+                },
+                "hellColor": {
+                    "name": "Cor do Nether"
+                },
+                "endColor": {
+                    "name": "Cor do End"
+                },
+                "hell": {
+                    "name": ""
                 }
             },
             "enabled": {
@@ -39,6 +48,9 @@
                 },
                 "hell": {
                     "name": "Nether"
+                },
+                "endDistance": {
+                    "name": "Distância do End"
                 }
             }
         }
