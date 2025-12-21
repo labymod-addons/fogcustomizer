@@ -23,6 +23,9 @@
                 },
                 "hellColor": {
                     "name": "Nether-kleur"
+                },
+                "end": {
+                    "name": "Einde"
                 }
             }
         }
