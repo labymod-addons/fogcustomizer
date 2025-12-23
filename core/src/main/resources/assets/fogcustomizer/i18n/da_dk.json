@@ -20,6 +20,13 @@
                 },
                 "lavaColor": {
                     "name": "Lavafarve"
+                },
+                "surface": {
+                    "name": "Oververden",
+                    "description": "Skift farven på tågen i Oververdenen."
+                },
+                "surfaceColor": {
+                    "name": "Oververdens farve"
                 }
             },
             "density": {
