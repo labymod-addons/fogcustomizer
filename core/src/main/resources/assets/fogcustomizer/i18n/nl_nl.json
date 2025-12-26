@@ -66,14 +66,16 @@
                     "description": "De afstand in blokken waarbij de mist volledig zichtbaar is in de Overworld."
                 },
                 "hell": {
-                    "description": "Schakel de aangepaste mistdichtheid in of uit in de Nether."
+                    "description": "Schakel de aangepaste mistdichtheid in of uit in de Nether.",
+                    "name": "Nether"
                 },
                 "hellDensity": {
                     "name": "Nether-dichtheid",
                     "description": "Het dichtheidspercentage van de mist in de Nether."
                 },
                 "end": {
-                    "description": "Schakel de aangepaste mistdichtheid in of uit in de End."
+                    "description": "Schakel de aangepaste mistdichtheid in of uit in de End.",
+                    "name": "End"
                 },
                 "endDensity": {
                     "name": "End-dichtheid",
@@ -82,6 +84,10 @@
                 "endDistance": {
                     "name": "End-afstand",
                     "description": "De afstand in blokken waarbij de mist volledig zichtbaar is in de End."
+                },
+                "hellDistance": {
+                    "name": "Nether afstand",
+                    "description": "De afstand in blokken waar de mist volledig zichtbaar moet zijn."
                 }
             }
         }
