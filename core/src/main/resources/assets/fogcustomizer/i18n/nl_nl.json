@@ -25,7 +25,35 @@
                     "name": "Nether kleur"
                 },
                 "end": {
-                    "name": "Einde"
+                    "name": "Einde",
+                    "description": "Verander de kleur van de mist in de End."
+                },
+                "endColor": {
+                    "name": "End Kleur",
+                    "description": "De kleur van de mist in de End."
+                },
+                "water": {
+                    "name": "Water",
+                    "description": "Wijzig de kleur van de mist in het water."
+                },
+                "waterColor": {
+                    "name": "Water kleur",
+                    "description": "De kleur van de mist in het water."
+                },
+                "lava": {
+                    "name": "Lava",
+                    "description": "Wijzig de kleur van de mist in de lava."
+                },
+                "lavaColor": {
+                    "name": "Lava Kleur",
+                    "description": "De kleur van de mist in de lava."
+                }
+            },
+            "density": {
+                "name": "Dichtheid",
+                "description": "De dichtheid van de mist.",
+                "surface": {
+                    "name": "Overwereld"
                 }
             }
         }
