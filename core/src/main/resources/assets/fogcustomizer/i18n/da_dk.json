@@ -26,7 +26,8 @@
                     "description": "Skift farven på tågen i Oververdenen."
                 },
                 "surfaceColor": {
-                    "name": "Oververdens farve"
+                    "name": "Oververdens farve",
+                    "description": "Farven på tågen i Oververdenen."
                 }
             },
             "density": {
