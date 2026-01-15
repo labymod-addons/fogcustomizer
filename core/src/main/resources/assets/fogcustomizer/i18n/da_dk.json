@@ -28,6 +28,9 @@
                 "surfaceColor": {
                     "name": "Oververdens farve",
                     "description": "Farven på tågen i Oververdenen."
+                },
+                "hell": {
+                    "name": "Nether"
                 }
             },
             "density": {
