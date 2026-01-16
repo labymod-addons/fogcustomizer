@@ -30,7 +30,11 @@
                     "description": "Farven på tågen i Oververdenen."
                 },
                 "hell": {
-                    "name": "Nether"
+                    "name": "Nether",
+                    "description": "Ændre tågefarven i Nether."
+                },
+                "hellColor": {
+                    "name": "Nether Farve"
                 }
             },
             "density": {
