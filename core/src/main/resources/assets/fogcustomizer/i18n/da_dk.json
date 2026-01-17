@@ -10,7 +10,8 @@
                 "name": "Farve",
                 "description": "Farven på tågen.",
                 "water": {
-                    "name": "Vand"
+                    "name": "Vand",
+                    "description": "Skift farven på tågen i vandet."
                 },
                 "waterColor": {
                     "name": "Vandfarve"
