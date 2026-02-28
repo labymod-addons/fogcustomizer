@@ -1,1 +1,14 @@
-{}
+{
+    "fogcustomizer": {
+        "settings": {
+            "color": {
+                "end": {
+                    "name": "Fim"
+                },
+                "water": {
+                    "name": "Água"
+                }
+            }
+        }
+    }
+}
