@@ -34,7 +34,8 @@
                 }
             },
             "density": {
-                "name": "Densitet"
+                "name": "Densitet",
+                "description": "Tæthed af tågen."
             }
         }
     }
