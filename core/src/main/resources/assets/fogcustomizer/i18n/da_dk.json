@@ -31,7 +31,7 @@
                 },
                 "hell": {
                     "name": "Nether",
-                    "description": "Ændre tågefarven i Nether."
+                    "description": "Skift farven på tågen i Nether."
                 },
                 "hellColor": {
                     "name": "Nether Farve"
