@@ -34,7 +34,11 @@
                     "description": "Skift farven på tågen i Nether."
                 },
                 "hellColor": {
-                    "name": "Nether Farve"
+                    "name": "Nether Farve",
+                    "description": "Farven på tågen i Nether."
+                },
+                "end": {
+                    "name": "Enden"
                 }
             },
             "density": {
