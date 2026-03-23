@@ -39,6 +39,9 @@
                 },
                 "end": {
                     "name": "Enden"
+                },
+                "endColor": {
+                    "name": "End Farve"
                 }
             },
             "density": {
