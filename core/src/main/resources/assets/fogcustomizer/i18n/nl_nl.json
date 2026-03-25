@@ -62,7 +62,7 @@
                     "description": "Het dichtheidspercentage van de mist in de Overworld."
                 },
                 "surfaceDistance": {
-                    "name": "Overworld-afstand",
+                    "name": "Overworld afstand",
                     "description": "De afstand in blokken waarbij de mist volledig zichtbaar is in de Overworld."
                 },
                 "hell": {
@@ -70,7 +70,7 @@
                     "name": "Nether"
                 },
                 "hellDensity": {
-                    "name": "Nether-dichtheid",
+                    "name": "Nether dichtheid",
                     "description": "Het dichtheidspercentage van de mist in de Nether."
                 },
                 "end": {
@@ -78,11 +78,11 @@
                     "name": "End"
                 },
                 "endDensity": {
-                    "name": "End-dichtheid",
+                    "name": "End dichtheid",
                     "description": "Het dichtheidspercentage van de mist in de End."
                 },
                 "endDistance": {
-                    "name": "End-afstand",
+                    "name": "End afstand",
                     "description": "De afstand in blokken waarbij de mist volledig zichtbaar is in de End."
                 },
                 "hellDistance": {
