@@ -22,7 +22,8 @@
                     "description": "Wijzig de kleur van de mist in de Nether."
                 },
                 "hellColor": {
-                    "name": "Nether kleur"
+                    "name": "Nether kleur",
+                    "description": "De kleur van de mist in de Nether."
                 },
                 "end": {
                     "name": "Einde",
@@ -53,7 +54,11 @@
                 "name": "Dichtheid",
                 "description": "De dichtheid van de mist.",
                 "surface": {
-                    "name": "Overwereld"
+                    "name": "Overwereld",
+                    "description": "Schakel de aangepaste mistdichtheid in of uit in de Overworld."
+                },
+                "surfaceDensity": {
+                    "name": "Overworld-dichtheid"
                 }
             }
         }
