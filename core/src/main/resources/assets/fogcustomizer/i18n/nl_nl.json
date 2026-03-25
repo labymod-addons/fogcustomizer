@@ -87,7 +87,7 @@
                 },
                 "hellDistance": {
                     "name": "Nether afstand",
-                    "description": "De afstand in blokken waar de mist volledig zichtbaar moet zijn."
+                    "description": "De afstand in blokken waar de mist volledig zichtbaar moet zijn in de Nether."
                 }
             }
         }
