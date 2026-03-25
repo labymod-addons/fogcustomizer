@@ -14,7 +14,7 @@
                     "description": "Wijzig de kleur van de mist in de Overwereld."
                 },
                 "surfaceColor": {
-                    "name": "Bovenwereldkleur",
+                    "name": "Overworldkleur",
                     "description": "De kleur van de mist in de Overworld."
                 },
                 "hell": {
@@ -22,7 +22,7 @@
                     "description": "Wijzig de kleur van de mist in de Nether."
                 },
                 "hellColor": {
-                    "name": "Nether-kleur"
+                    "name": "Nether kleur"
                 },
                 "end": {
                     "name": "Einde"
