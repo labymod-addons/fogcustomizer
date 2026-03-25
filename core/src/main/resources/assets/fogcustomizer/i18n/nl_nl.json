@@ -58,7 +58,7 @@
                     "description": "Schakel de aangepaste mistdichtheid in of uit in de Overworld."
                 },
                 "surfaceDensity": {
-                    "name": "Overworld-dichtheid"
+                    "name": "Overworld dichtheid"
                 }
             }
         }
