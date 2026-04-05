@@ -3,7 +3,11 @@
         "settings": {
             "name": "Personnaliseur de brouillard",
             "enabled": {
-                "name": "Activé"
+                "name": "Activé",
+                "description": "Activer ou désactiver le personnaliseur de brouillard."
+            },
+            "color": {
+                "name": "Couleur"
             }
         }
     }
