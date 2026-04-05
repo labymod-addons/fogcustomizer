@@ -1,1 +1,10 @@
-{}
+{
+    "fogcustomizer": {
+        "settings": {
+            "name": "Personnaliseur de brouillard",
+            "enabled": {
+                "name": "Activé"
+            }
+        }
+    }
+}
