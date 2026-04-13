@@ -1,7 +1,11 @@
 {
     "fogcustomizer": {
         "settings": {
-            "name": "مُخصص الضباب"
+            "name": "مُخصص الضباب",
+            "enabled": {
+                "name": "مفعّل",
+                "description": "تفعيل أو تعطيل مُخصص الضباب."
+            }
         }
     }
 }
