@@ -14,13 +14,16 @@
                     "description": "Skift farven på tågen i vandet."
                 },
                 "waterColor": {
-                    "name": "Vandfarve"
+                    "name": "Vandfarve",
+                    "description": "Farven af tågen i vandet."
                 },
                 "lava": {
-                    "name": "Lava"
+                    "name": "Lava",
+                    "description": "Skift farven på tågen inde i laven."
                 },
                 "lavaColor": {
-                    "name": "Lavafarve"
+                    "name": "Lavafarve",
+                    "description": "Farven på tågen inde i lavaen."
                 },
                 "surface": {
                     "name": "Oververden",
@@ -39,15 +42,53 @@
                     "description": "Farven på tågen i Nether."
                 },
                 "end": {
-                    "name": "Enden"
+                    "name": "Enden",
+                    "description": "Skifter farven af tågen på farven i Enden."
                 },
                 "endColor": {
-                    "name": "End Farve"
+                    "name": "End Farve",
+                    "description": "Farven på tågen i Enden."
                 }
             },
             "density": {
                 "name": "Densitet",
-                "description": "Tæthed af tågen."
+                "description": "Tæthed af tågen.",
+                "surface": {
+                    "name": "Oververden",
+                    "description": "Aktiver eller deaktiver den brugerdefineret tæthed af tåge i Oververden."
+                },
+                "end": {
+                    "name": "Enden",
+                    "description": "Aktiver eller deaktiver den brugerdefineret tæthed i Enden."
+                },
+                "endDensity": {
+                    "name": "Enden tæthed",
+                    "description": "Tætheden af tåge i procent i Enden."
+                },
+                "surfaceDensity": {
+                    "name": "Oververden tæthed",
+                    "description": "Tætheden af tågen i procent i Oververden."
+                },
+                "surfaceDistance": {
+                    "name": "Oververden afstand",
+                    "description": "Afstanden i blokke hvor tågen skulle være fuldt synligt i Oververden."
+                },
+                "hell": {
+                    "name": "Nether",
+                    "description": "Aktiver eller deaktiver den brugerdefineret tåge tæthed i Nether."
+                },
+                "hellDensity": {
+                    "name": "Nether tæthed",
+                    "description": "Tætheden af tåge i Nether i procent."
+                },
+                "hellDistance": {
+                    "name": "Nether afstand",
+                    "description": "Afstanden i blokke hvor tågen skulle være helt synligt i Nether."
+                },
+                "endDistance": {
+                    "name": "Enden afstand",
+                    "description": "Afstanden i blokke hvor tågen skulle være hent synligt i Enden."
+                }
             }
         }
     }
