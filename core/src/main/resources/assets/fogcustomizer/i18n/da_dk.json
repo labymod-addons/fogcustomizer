@@ -43,7 +43,7 @@
                 },
                 "end": {
                     "name": "Enden",
-                    "description": "Skifter farven af tågen på farven i Enden."
+                    "description": "Skift farven på tågen i Enden."
                 },
                 "endColor": {
                     "name": "End Farve",
