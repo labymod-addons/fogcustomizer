@@ -82,7 +82,7 @@
                     "description": "Son'daki özel sis yoğunluğunu etkinleştir veya devre dışı bırak."
                 },
                 "endDensity": {
-                    "name": "Son yoğunluğu",
+                    "name": "End yoğunluğu",
                     "description": "Sondaki sisin yoğunluk yüzdesi."
                 },
                 "endDistance": {
