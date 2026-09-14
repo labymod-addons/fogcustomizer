@@ -16,17 +16,16 @@
 
 package net.labymod.addons.fogcustomizer.v1_21_10.mixins;
 
-import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
-import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
-import java.nio.ByteBuffer;
+import com.llamalad7.mixinextras.sugar.Local;
 import net.labymod.addons.fogcustomizer.FogCustomizer;
 import net.labymod.addons.fogcustomizer.configuration.FogCustomizerConfiguration;
 import net.labymod.addons.fogcustomizer.configuration.color.ColorConfiguration;
 import net.labymod.addons.fogcustomizer.configuration.density.DensityConfiguration;
 import net.labymod.api.util.Color;
 import net.minecraft.client.Camera;
-import net.minecraft.client.Minecraft;
+import net.minecraft.client.DeltaTracker;
 import net.minecraft.client.multiplayer.ClientLevel;
+import net.minecraft.client.renderer.fog.FogData;
 import net.minecraft.client.renderer.fog.FogRenderer;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.effect.MobEffects;
@@ -35,6 +34,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.material.FogType;
 import org.joml.Vector4f;
+import org.objectweb.asm.Opcodes;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
@@ -43,8 +43,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 /**
  * Since 1.21.6 the fog is no longer a {@code FogParameters} record: the colour is the return value
- * of computeFogColor and the four bounds only exist together in the private buffer write setupFog
- * ends with, so that write is where the density override belongs.
+ * of computeFogColor and the four bounds live in the FogData setupFog fills before writing the
+ * buffer from it, so the density override lands on that object.
  */
 @Mixin(FogRenderer.class)
 public class MixinFogRenderer {
@@ -72,24 +72,26 @@ public class MixinFogRenderer {
     );
   }
 
-  @WrapOperation(
+  // This sits on the last field write of setupFog instead of around the buffer write because Sodium
+  // reads the same object from a RETURN injector and copies the ranges into the uniform it renders
+  // chunks with. Replacing only the arguments of the write left that copy untouched, so the density
+  // held for hand, entities and particles but not for the terrain.
+  @Inject(
       method = "setupFog",
       at = @At(
-          value = "INVOKE",
-          target = "Lnet/minecraft/client/renderer/fog/FogRenderer;updateBuffer"
-              + "(Ljava/nio/ByteBuffer;ILorg/joml/Vector4f;FFFFFF)V"
+          value = "FIELD",
+          target = "Lnet/minecraft/client/renderer/fog/FogData;renderDistanceEnd:F",
+          opcode = Opcodes.PUTFIELD,
+          shift = At.Shift.AFTER
       )
   )
   private void fogcustomizer$applyFogDensity(
-      FogRenderer instance, ByteBuffer buffer, int offset, Vector4f fogColor,
-      float environmentalStart, float environmentalEnd, float renderDistanceStart,
-      float renderDistanceEnd, float skyEnd, float cloudEnd, Operation<Void> original, Camera camera
+      Camera camera, int renderDistanceInChunks, boolean isFoggy, DeltaTracker deltaTracker,
+      float darkenWorldAmount, ClientLevel level,
+      CallbackInfoReturnable<Vector4f> callback, @Local FogData fog
   ) {
     FogCustomizerConfiguration configuration = fogcustomizer$config();
-    ClientLevel level = Minecraft.getInstance().level;
     if (!configuration.enabled().get() || level == null) {
-      original.call(instance, buffer, offset, fogColor, environmentalStart, environmentalEnd,
-          renderDistanceStart, renderDistanceEnd, skyEnd, cloudEnd);
       return;
     }
 
@@ -100,8 +102,6 @@ public class MixinFogRenderer {
         || (entity instanceof LivingEntity livingEntity
         && livingEntity.hasEffect(MobEffects.BLINDNESS))
     ) {
-      original.call(instance, buffer, offset, fogColor, environmentalStart, environmentalEnd,
-          renderDistanceStart, renderDistanceEnd, skyEnd, cloudEnd);
       return;
     }
 
@@ -120,8 +120,6 @@ public class MixinFogRenderer {
       percentage = density.endDensity().get();
       distance = density.endDistance().get();
     } else {
-      original.call(instance, buffer, offset, fogColor, environmentalStart, environmentalEnd,
-          renderDistanceStart, renderDistanceEnd, skyEnd, cloudEnd);
       return;
     }
 
@@ -130,7 +128,10 @@ public class MixinFogRenderer {
 
     // Both ranges are replaced: before 1.21.6 there was only one, and leaving the environmental one
     // untouched would let the biome fog outweigh a lowered density.
-    original.call(instance, buffer, offset, fogColor, start, end, start, end, skyEnd, cloudEnd);
+    fog.environmentalStart = start;
+    fog.environmentalEnd = end;
+    fog.renderDistanceStart = start;
+    fog.renderDistanceEnd = end;
   }
 
   @Unique

@@ -16,6 +16,7 @@
 
 package net.labymod.addons.fogcustomizer.v26_1.mixins;
 
+import com.llamalad7.mixinextras.sugar.Local;
 import net.labymod.addons.fogcustomizer.FogCustomizer;
 import net.labymod.addons.fogcustomizer.configuration.FogCustomizerConfiguration;
 import net.labymod.addons.fogcustomizer.configuration.color.ColorConfiguration;
@@ -23,7 +24,6 @@ import net.labymod.addons.fogcustomizer.configuration.density.DensityConfigurati
 import net.labymod.api.util.Color;
 import net.minecraft.client.Camera;
 import net.minecraft.client.DeltaTracker;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.renderer.fog.FogData;
 import net.minecraft.client.renderer.fog.FogRenderer;
@@ -34,6 +34,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.material.FogType;
 import org.joml.Vector4f;
+import org.objectweb.asm.Opcodes;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
@@ -44,8 +45,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 /**
  * Since 26.1 the fog is no longer a single {@code FogParameters} record built inside setupFog. The
  * colour is written into an out parameter and the ranges live in the {@link FogData} setupFog
- * returns, so both overrides land at the end of the method that produces them instead of wrapping
- * the constructor call.
+ * returns, so both overrides land in the method that produces them instead of wrapping the
+ * constructor call.
  */
 @Mixin(FogRenderer.class)
 public class MixinFogRenderer {
@@ -71,10 +72,23 @@ public class MixinFogRenderer {
     );
   }
 
-  @Inject(method = "setupFog", at = @At("RETURN"))
+  // This sits on the last field write of setupFog instead of its RETURN because Sodium reads the
+  // same object from a RETURN injector and copies the ranges into the uniform it renders chunks
+  // with. Writing after that callback would only reach the vanilla pipeline, so the density would
+  // hold for hand, entities and particles but not for the terrain.
+  @Inject(
+      method = "setupFog",
+      at = @At(
+          value = "FIELD",
+          target = "Lnet/minecraft/client/renderer/fog/FogData;renderDistanceEnd:F",
+          opcode = Opcodes.PUTFIELD,
+          shift = At.Shift.AFTER
+      )
+  )
   private void fogcustomizer$applyFogDensity(
       Camera camera, int renderDistanceInChunks, DeltaTracker deltaTracker,
-      float darkenWorldAmount, ClientLevel level, CallbackInfoReturnable<FogData> callback
+      float darkenWorldAmount, ClientLevel level, CallbackInfoReturnable<FogData> callback,
+      @Local FogData fog
   ) {
     FogCustomizerConfiguration configuration = fogcustomizer$config();
     if (!configuration.enabled().get() || level == null) {
@@ -114,7 +128,6 @@ public class MixinFogRenderer {
 
     // Both ranges are replaced: before 26.1 there was only one, and leaving the environmental one
     // untouched would let the biome fog outweigh a lowered density.
-    FogData fog = callback.getReturnValue();
     fog.environmentalStart = start;
     fog.environmentalEnd = end;
     fog.renderDistanceStart = start;
