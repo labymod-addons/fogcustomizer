@@ -21,7 +21,6 @@ val optiFineVersions = mapOf(
 plugins {
     id("net.labymod.labygradle")
     id("net.labymod.labygradle.addon")
-    id("org.cadixdev.licenser") version ("0.6.1")
 }
 
 val versions = providers.gradleProperty("net.labymod.minecraft-versions").get().split(";")
@@ -57,14 +56,15 @@ labyMod {
 subprojects {
     plugins.apply("net.labymod.labygradle")
     plugins.apply("net.labymod.labygradle.addon")
-    plugins.apply("org.cadixdev.licenser")
 
     group = rootProject.group
     version = rootProject.version
 
-    license {
-        header(rootProject.file("gradle/LICENSE-HEADER.txt"))
-        newLine.set(true)
+    // The version modules compile against the Java version their Minecraft version runs on, so the
+    // shared modules have to stay below the oldest of them instead of following the build JDK.
+    extensions.findByType(JavaPluginExtension::class.java)?.apply {
+        sourceCompatibility = JavaVersion.VERSION_21
+        targetCompatibility = JavaVersion.VERSION_21
     }
 }
 
