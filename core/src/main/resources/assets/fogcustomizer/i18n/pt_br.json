@@ -7,7 +7,14 @@
                 },
                 "water": {
                     "name": "Água"
+                },
+                "surfaceColor": {
+                    "name": "Cor do Mundo Superior",
+                    "description": "A cor da névoa no Mundo Superior."
                 }
+            },
+            "enabled": {
+                "description": "Ativar ou desativar a névoa customizada."
             }
         }
     }
