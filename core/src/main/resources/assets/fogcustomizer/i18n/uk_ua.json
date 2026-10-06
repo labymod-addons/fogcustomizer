@@ -1,1 +1,19 @@
-{}
+{
+    "fogcustomizer": {
+        "settings": {
+            "color": {
+                "endColor": {
+                    "description": "Колір туману в Краї."
+                },
+                "water": {
+                    "name": "Вода",
+                    "description": "Змінює колір туману під водою."
+                },
+                "waterColor": {
+                    "name": "Колір води",
+                    "description": "Колір туману під водою."
+                }
+            }
+        }
+    }
+}
