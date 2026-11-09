@@ -11,6 +11,16 @@
                 "surfaceColor": {
                     "name": "Cor do Mundo Superior",
                     "description": "A cor da névoa no Mundo Superior."
+                },
+                "lavaColor": {
+                    "name": "Cor da Lava",
+                    "description": "A cor da névoa dentro da lava."
+                },
+                "waterColor": {
+                    "name": "Cor da Água"
+                },
+                "lava": {
+                    "name": "Lava"
                 }
             },
             "enabled": {
@@ -22,6 +32,13 @@
                 },
                 "hellDistance": {
                     "name": "Distância do Nether"
+                },
+                "name": "Densidade",
+                "end": {
+                    "name": "Fim"
+                },
+                "hell": {
+                    "name": "Nether"
                 }
             }
         }
